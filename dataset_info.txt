@@ -1,0 +1,15 @@
+Dataset: Garbage Classification (mostafaabla/garbage-classification)
+Total Classes: 11
+Total Images: 10190
+
+battery: 945
+biological: 985
+brown-glass: 607
+cardboard: 891
+green-glass: 629
+metal: 769
+paper: 1050
+plastic: 865
+shoes: 1977
+trash: 697
+white-glass: 775
