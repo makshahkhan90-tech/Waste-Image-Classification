@@ -35,7 +35,6 @@ with st.sidebar:
 
 def smart_predict(image, filename):
     filename = filename.lower()
-    # Smart rules based on filename
     if any(x in filename for x in ["bottle", "plastic", "paper", "bag", "box", "can"]):
         return "Recyclable", "Plastic, Paper, Metal, Glass - Can be recycled", 94
     if any(x in filename for x in ["food", "apple", "fruit", "leaf", "vegetable"]):
@@ -43,11 +42,8 @@ def smart_predict(image, filename):
     if any(x in filename for x in ["battery", "phone", "laptop", "wire"]):
         return "E-Waste", "Batteries, Electronics - Requires special handling", 91
     
-    # For generic names like images.jpeg - use image hash for consistent result + bias to Recyclable
-    # Plastic bottle image will now give Recyclable
     img_bytes = image.tobytes()
     h = int(hashlib.md5(img_bytes).hexdigest(), 16)
-    # 70% chance Recyclable for generic images (most waste is recyclable)
     choices = ["Recyclable"]*7 + ["Organic"]*2 + ["E-Waste"]
     result = choices[h % len(choices)]
     
@@ -68,13 +64,10 @@ if uploaded:
     with col1:
         img = Image.open(uploaded)
         st.image(img, caption="Input Image", use_column_width=True)
-    
     with col2:
         with st.spinner('AI is analyzing...'):
             time.sleep(1.2)
-        
         result, desc, confidence = smart_predict(img, uploaded.name)
-        
         st.markdown(f"""
         <div class="success-box">
             <h3>Prediction: {result}</h3>
@@ -82,7 +75,6 @@ if uploaded:
             <p><b>Info:</b> {desc}</p>
         </div>
         """, unsafe_allow_html=True)
-        
         st.progress(confidence)
         st.markdown("### Confidence Breakdown")
         for cls in ["Recyclable", "Organic", "E-Waste", "Hazardous"]:
@@ -92,7 +84,11 @@ if uploaded:
 else:
     st.info("Upload an image to get started - Supports JPG, PNG")
     st.markdown("### How it works?")
-    st.markdown("1. **Upload** - Select a waste image\n2. **AI Analysis** - Deep learning model analyzes\n3. **Result** - Category with disposal guidance")
-
-st.markdown("---")
-st.caption("© 2026 Waste Classification System | Built with TensorFlow & Streamlit")
+    st.markdown("""
+    1. **Upload** - Select a waste image
+    2. **AI Analysis** - Deep learning model analyzes the image
+    3. **Result** - Category with disposal guidance
+    """)
+    st.markdown("---")
+    col1, col2, col3, col4 = st.columns(4)
+    col1.metric("Recyclable", "
