@@ -123,3 +123,21 @@ st.markdown(
 )
 
 st.caption("© 2026 Waste Classification System | Built with TensorFlow & Streamlit")
+# --- Project Report Section ---
+st.divider()
+st.subheader("Project Documentation")
+
+try:
+    with open("DL_Project_Report_Shah_Khan_Aslam_F25-016.pdf", "rb") as pdf_file:
+        st.download_button(
+            label="View Full Project Report (PDF)",
+            data=pdf_file,
+            file_name="Waste_Classification_Proposal_Shah_Khan_Aslam_F25-016.pdf",
+            mime="application/pdf",
+            use_container_width=True,
+            type="primary"
+        )
+    st.caption("Waste Image Classification Using Deep Learning | 6 Categories: Plastic, Paper, Glass, Metal, Cardboard, Trash | CS-7A | F25-016")
+
+except FileNotFoundError:
+    st.error("Report PDF not found. Please ensure 'DL_Project_Report_Shah_Khan_Aslam_F25-016.pdf' is in the app directory.")
