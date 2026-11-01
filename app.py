@@ -96,3 +96,48 @@ else:
 
 st.markdown("---")
 st.caption("© 2026 Waste Classification System | Built with TensorFlow & Streamlit")
+import streamlit as st
+
+# Sidebar ya footer me LinkedIn button
+st.sidebar.markdown("---")
+st.sidebar.markdown("### 📢 Connect With Me")
+st.sidebar.markdown(
+    """
+    <a href="https://lnkd.in/p/djkK7udG" target="_blank">
+        <button style="
+            background-color:#0077B5;
+            color:white;
+            border:none;
+            padding:10px 20px;
+            border-radius:8px;
+            font-weight:bold;
+            cursor:pointer;
+            width:100%;
+        ">
+        🔗 View LinkedIn Post
+        </button>
+    </a>
+    """,
+    unsafe_allow_html=True
+)
+
+# Main page pe bhi button (optional)
+st.markdown(
+    """
+    <div style="text-align:center; margin-top:30px;">
+        <a href="https://lnkd.in/p/djkK7udG" target="_blank" style="text-decoration:none;">
+            <span style="
+                background-color:#0077B5;
+                color:white;
+                padding:12px 25px;
+                border-radius:25px;
+                font-weight:bold;
+                font-size:16px;
+            ">
+            💼 See My LinkedIn Project Post
+            </span>
+        </a>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
