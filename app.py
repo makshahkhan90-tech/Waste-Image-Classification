@@ -148,3 +148,34 @@ st.link_button(
     use_container_width=True
 )
 st.caption("Waste Image Classification | Deep Learning Project | 92.4% Accuracy")
+# --- Project Presentation Section ---
+st.divider()
+st.subheader("Project Presentation")
+
+try:
+    # Try with .pptx extension
+    with open("DL Project PPT Shah Khan Aslam (F25-016).pptx", "rb") as ppt_file:
+        st.download_button(
+            label="📊 Download Presentation (PPTX)",
+            data=ppt_file,
+            file_name="Waste_Classification_PPT_F25-016.pptx",
+            mime="application/vnd.openxmlformats-officedocument.presentationml.presentation",
+            use_container_width=True,
+            type="primary"
+        )
+    st.caption("Waste Image Classification | Deep Learning Course Project | 92.4% Accuracy")
+
+except FileNotFoundError:
+    try:
+        # If extension is .ppt (old format)
+        with open("DL Project PPT Shah Khan Aslam (F25-016).ppt", "rb") as ppt_file:
+            st.download_button(
+                label="📊 Download Presentation (PPT)",
+                data=ppt_file,
+                file_name="Waste_Classification_PPT_F25-016.ppt",
+                mime="application/vnd.ms-powerpoint",
+                use_container_width=True,
+                type="primary"
+            )
+    except FileNotFoundError:
+        st.error("PPT not found. Please ensure file name is 'DL Project PPT Shah Khan Aslam (F25-016).pptx' in the app directory.")
