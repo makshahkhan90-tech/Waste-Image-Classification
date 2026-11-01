@@ -141,3 +141,10 @@ try:
 
 except FileNotFoundError:
     st.error("Report PDF not found in app directory.")
+# --- YouTube Demo Section ---
+st.link_button(
+    "Watch Project Demo on YouTube",
+    "https://www.youtube.com/watch?v=v-tpcsYaqYE",
+    use_container_width=True
+)
+st.caption("Waste Image Classification | Deep Learning Project | 92.4% Accuracy")
