@@ -134,7 +134,7 @@ st.markdown(
                 font-weight:bold;
                 font-size:16px;
             ">
-            💼 See My LinkedIn Project Post
+            💼 See My LinkedIn & Project Post
             </span>
         </a>
     </div>
